@@ -45,7 +45,7 @@ $HealthReport = $AllResponses | Where-Object {
         OSPlatform      = $_.osplatform
         LastSeen        = $_.lastseen
         LastIPAddress   = $_.lastipaddress
-        MacAddress      = $_.ipAddresses.MacAddress
+        # MacAddress      = $_.ipAddresses.MacAddress | Out-String
     }
 }
 $healthReport | Export-CSV -Path "$Env:UserProfile\Downloads\MDE_Device_Health.csv"  -NoTypeInformation
@@ -61,7 +61,7 @@ $UnknownDevices = $AllResponses | Where-Object {
         OSPlatform      = $_.osplatform
         LastSeen        = $_.lastseen
         LastIPAddress   = $_.lastipaddress
-        MacAddress      = $_.ipAddresses.MacAddress
+        MacAddress      = $_.ipAddresses.MacAddress | Out-String
     }
 }
 $UnknownDevices | Export-CSV -Path "$Env:UserProfile\Downloads\MDE_UnknownDevices.csv"  -NoTypeInformation
